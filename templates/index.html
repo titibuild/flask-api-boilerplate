@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0d0b1f" />
+  <title>Resonate — London's Music Tribes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <!-- Ambient background glow -->
+  <div class="ambient">
+    <span class="blob blob--violet"></span>
+    <span class="blob blob--pink"></span>
+    <span class="blob blob--cyan"></span>
+  </div>
+
+  <!-- Phone frame -->
+  <div class="phone" role="application" aria-label="Resonate mobile app">
+    <div class="notch"></div>
+
+    <!-- Status bar -->
+    <div class="statusbar">
+      <span class="time">9:41</span>
+      <span class="icons">
+        <i class="dot"></i>
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 7l2-2 2 2M5 9l2-2 2 2M9 5l2-2 2 2M13 7l2-2 2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <span class="battery"></span>
+      </span>
+    </div>
+
+    <!-- App screen -->
+    <main class="screen">
+
+      <!-- Header -->
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M9 18V6l10-2v10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="#fff" stroke-width="2"/><circle cx="16.5" cy="16" r="2.5" stroke="#fff" stroke-width="2"/></svg>
+          </div>
+          <div>
+            <p class="hello">Resonate</p>
+            <p class="sub">London · 14 communities near you</p>
+          </div>
+        </div>
+        <button class="avatar" aria-label="Profile">
+          <img src="https://i.pravatar.cc/80?img=15" alt="Your profile" />
+          <span class="online"></span>
+        </button>
+      </header>
+
+      <!-- Search -->
+      <div class="searchwrap">
+        <svg class="search-ic" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="Search genres, crews, nights…" aria-label="Search" />
+      </div>
+
+      <!-- Scrollable content -->
+      <div class="scroll" id="scroll">
+
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-copy">
+            <span class="hero-tag">Tonight in London</span>
+            <h1>Find your<br/>frequency.</h1>
+            <p>Connect with the people who move to your sound — from Peckham jazz to Hackney techno.</p>
+            <button class="cta">Explore the scene →</button>
+          </div>
+          <div class="hero-eq" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </section>
+
+        <!-- Genre chips -->
+        <div class="chips" id="chips" role="tablist" aria-label="Filter by genre">
+          <button class="chip is-active" data-genre="all">All</button>
+          <button class="chip" data-genre="techno">Techno</button>
+          <button class="chip" data-genre="jazz">Jazz</button>
+          <button class="chip" data-genre="afrobeats">Afrobeats</button>
+          <button class="chip" data-genre="indie">Indie</button>
+          <button class="chip" data-genre="dnb">D&B</button>
+          <button class="chip" data-genre="soul">Soul</button>
+        </div>
+
+        <!-- Communities -->
+        <section class="block">
+          <div class="block-head">
+            <h2>Communities for you</h2>
+            <a href="#" class="see">See all</a>
+          </div>
+
+          <div class="cards" id="communities">
+            <!-- cards injected by JS -->
+          </div>
+        </section>
+
+        <!-- Events -->
+        <section class="block">
+          <div class="block-head">
+            <h2>Upcoming meetups</h2>
+            <a href="#" class="see">See all</a>
+          </div>
+
+          <div class="events" id="events"><!-- injected --></div>
+        </section>
+
+        <div class="footer-space"></div>
+      </div>
+
+      <!-- Bottom nav -->
+      <nav class="tabbar" aria-label="Primary">
+        <button class="tab is-active" data-tab="home">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M3 11l9-7 9 7v8a2 2 0 01-2 2h-4v-6H9v6H5a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span>Home</span>
+        </button>
+        <button class="tab" data-tab="discover">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span>Discover</span>
+        </button>
+        <button class="tab tab--fab" data-tab="create" aria-label="Create">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </button>
+        <button class="tab" data-tab="events">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Events</span>
+        </button>
+        <button class="tab" data-tab="chat">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M4 5h16v11H9l-4 3v-3H4V5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span>Crews</span>
+        </button>
+      </nav>
+    </main>
+  </div>
+
+  <p class="hint">Tap chips, join communities, and switch tabs — it's interactive.</p>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
